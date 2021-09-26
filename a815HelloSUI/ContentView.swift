@@ -8,23 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var activeTab:Int = 0
+    @State var inputString:String = ""
     var body: some View {
-        TabView(selection: $activeTab) {
-            VStack{
-                Text("in page \(activeTab)")
-                Text("Line 2 in page \(activeTab)")
-            }.tabItem {
-                Image(systemName: "list.bullet")
-            }.tag(5)
-            
-            
-            
-            Text("in page \(activeTab)")
-                .tabItem {
-                    Image(systemName: "list.bullet")
-                }.tag(2)
-            
+        VStack{
+            Text(inputString)
+            Spacer()
+            Text("==分割線==")
+            HStack{
+                Text("請輸入：")
+                TextField("", text: $inputString)
+            }
         }
     }
 }
