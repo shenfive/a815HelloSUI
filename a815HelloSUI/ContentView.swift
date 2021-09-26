@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var activeTab:Int = 0
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView(selection: $activeTab) {
+            VStack{
+                Text("in page \(activeTab)")
+                Text("Line 2 in page \(activeTab)")
+            }.tabItem {
+                Image(systemName: "list.bullet")
+            }.tag(5)
+            
+            
+            
+            Text("in page \(activeTab)")
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                }.tag(2)
+            
+        }
     }
 }
 
