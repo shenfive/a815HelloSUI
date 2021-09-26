@@ -38,8 +38,8 @@ struct ContentView: View {
 
 
 struct MyView:View {
-    @State var label:String
-    @State var value:CGFloat
+    var label:String
+    var value:CGFloat
     
     var body: some View{
         Text("\(label):\(Int(value * 255))").font(.largeTitle)
