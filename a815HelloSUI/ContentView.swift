@@ -18,11 +18,11 @@ struct ContentView: View {
             VStack{
                 HStack{
                     Spacer()
-                    Text("R:\( Int(r * 255) )").font(.largeTitle)
+                    MyView(label: "R", value: r)
                     Spacer()
-                    Text("G:\( Int(g * 255) )").font(.largeTitle)
+                    MyView(label: "G", value: g)
                     Spacer()
-                    Text("B:\( Int(b * 255) )").font(.largeTitle)
+                    MyView(label: "B", value: b)
                     Spacer()
                 }
                 Spacer()
@@ -30,14 +30,22 @@ struct ContentView: View {
                     Slider(value: $r).padding(.horizontal, 30)
                     Slider(value: $g).padding(.horizontal, 30)
                     Slider(value: $b).padding(.horizontal, 30)
-                    
                 }
             }
-            
         }
-        
     }
 }
+
+
+struct MyView:View {
+    @State var label:String
+    @State var value:CGFloat
+    
+    var body: some View{
+        Text("\(label):\(Int(value * 255))").font(.largeTitle)
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
